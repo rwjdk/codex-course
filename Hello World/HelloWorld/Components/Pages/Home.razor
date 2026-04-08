@@ -1,0 +1,21 @@
+@page "/"
+@rendermode InteractiveServer
+
+<PageTitle>Hello World</PageTitle>
+
+<div class="hero">
+    <h1>Hello World</h1>
+
+    <p role="status">Current count: @currentCount</p>
+
+    <button class="btn btn-primary" @onclick="IncrementCount">Count by 3</button>
+</div>
+
+@code {
+    private int currentCount;
+
+    private void IncrementCount()
+    {
+        currentCount += 3;
+    }
+}

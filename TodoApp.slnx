@@ -1,0 +1,20 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path=".editorconfig" />
+    <File Path="AGENTS.md" />
+  </Folder>
+  <Folder Name="/Solution Items/skills/" />
+  <Folder Name="/Solution Items/skills/add-api-endpoint/">
+    <File Path=".agents/skills/add-api-endpoint/SKILL.md" />
+  </Folder>
+  <Folder Name="/Solution Items/skills/add-blazor-page/">
+    <File Path=".agents/skills/add-blazor-page/SKILL.md" />
+  </Folder>
+  <Folder Name="/Solution Items/skills/add-mcp-tool/">
+    <File Path=".agents/skills/add-mcp-tool/SKILL.md" />
+  </Folder>
+  <Folder Name="/Solution Items/skills/add-repository-query-command/">
+    <File Path=".agents/skills/add-repository-query-command/SKILL.md" />
+  </Folder>
+  <Project Path="TodoApp/TodoApp.csproj" />
+</Solution>

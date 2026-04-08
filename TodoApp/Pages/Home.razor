@@ -1,0 +1,148 @@
+@using TodoApp.Data
+@attribute [Route(PageRoutes.Home)]
+
+<PageTitle>Todo App</PageTitle>
+
+<MudStack Spacing="4" Class="todo-page" Style="padding: 1rem 0 2rem;">
+    <MudStack Row="true"
+              Justify="Justify.SpaceBetween"
+              AlignItems="AlignItems.Center"
+              Wrap="Wrap.Wrap"
+              Style="padding-top: 0.5rem;">
+        <div>
+            <MudText Typo="Typo.h5">Tasks</MudText>
+        </div>
+
+        <MudStack Row="true" Spacing="2" Wrap="Wrap.Wrap">
+            <MudButton Variant="Variant.Text"
+                       StartIcon="@Icons.Material.Filled.Refresh"
+                       Disabled="@IsLoading"
+                       Size="Size.Small"
+                       OnClick="@LoadTodosAsync">
+                Refresh
+            </MudButton>
+
+            <MudCheckBox T="bool"
+                         Label="@CompletedToggleLabel"
+                         Color="Color.Primary"
+                         Size="Size.Small"
+                         CheckedIcon="@Icons.Material.Filled.Visibility"
+                         UncheckedIcon="@Icons.Material.Filled.VisibilityOff"
+                         @bind-Value="ShowCompletedTasks"/>
+
+            <MudButton Variant="Variant.Filled"
+                       Color="Color.Primary"
+                       StartIcon="@Icons.Material.Filled.Add"
+                       Disabled="@IsSaving"
+                       Size="Size.Small"
+                       OnClick="@OpenCreateDialogAsync">
+                New task
+            </MudButton>
+        </MudStack>
+    </MudStack>
+
+    @if (IsLoading)
+    {
+        <MudProgressLinear Indeterminate="true" Color="Color.Primary" Class="my-4" />
+    }
+
+    <MudDataGrid T="TodoItem"
+                 @ref="TodoGrid"
+                 Items="@VisibleTodos"
+                 ReadOnly="false"
+                 EditMode="DataGridEditMode.Form"
+                 EditTrigger="DataGridEditTrigger.Manual"
+                 EditDialogOptions="@TodoDialogOptions"
+                 Hover="true"
+                 Dense="true"
+                 Striped="true"
+                 Class="mt-4"
+                 CommittedItemChanges="CommitItemChangesAsync"
+                 CanceledEditingItem="HandleCanceledEditingItem">
+        <Columns>
+            <PropertyColumn Property="x => x.Title" Title="Title">
+                <EditTemplate>
+                    <MudTextField T="string"
+                                  Label="Title"
+                                  Variant="Variant.Outlined"
+                                  Margin="Margin.Dense"
+                                  Required="true"
+                                  @bind-Value="context.Item.Title" />
+                </EditTemplate>
+            </PropertyColumn>
+
+            <PropertyColumn Property="x => x.StartDate" Title="Start" Format="yyyy-MM-dd">
+                <EditTemplate>
+                    <MudDatePicker Label="Start date"
+                                   Variant="Variant.Outlined"
+                                   Margin="Margin.Dense"
+                                   Editable="true"
+                                   Clearable="true"
+                                   DateFormat="yyyy-MM-dd"
+                                   Date="@context.Item.StartDate"
+                                   DateChanged="@(date => context.Item.StartDate = date)" />
+                </EditTemplate>
+            </PropertyColumn>
+
+            <PropertyColumn Property="x => x.DueDate" Title="Due" Format="yyyy-MM-dd">
+                <EditTemplate>
+                    <MudDatePicker Label="Due date"
+                                   Variant="Variant.Outlined"
+                                   Margin="Margin.Dense"
+                                   Editable="true"
+                                   Clearable="true"
+                                   DateFormat="yyyy-MM-dd"
+                                   Date="@context.Item.DueDate"
+                                   DateChanged="@(date => context.Item.DueDate = date)" />
+                </EditTemplate>
+            </PropertyColumn>
+
+            <PropertyColumn Property="x => x.Completed" Title="Status">
+                <CellTemplate>
+                    <MudChip T="string"
+                             Color="@(context.Item.Completed ? Color.Success : Color.Warning)"
+                             Variant="Variant.Outlined"
+                             Size="Size.Small">
+                        @(context.Item.Completed ? "Completed" : "Open")
+                    </MudChip>
+                </CellTemplate>
+                <EditTemplate>
+                    <MudCheckBox T="bool"
+                                 Color="Color.Primary"
+                                 Label="Completed"
+                                 @bind-Value="context.Item.Completed" />
+                </EditTemplate>
+            </PropertyColumn>
+
+            <TemplateColumn Title="Actions" Sortable="false" Filterable="false" CellClass="actions-cell">
+                <CellTemplate>
+                    <MudTooltip Text="Edit task">
+                        <MudIconButton Icon="@Icons.Material.Filled.Edit"
+                                       Color="Color.Primary"
+                                       Size="Size.Small"
+                                       OnClick="@(() => OpenEditDialogAsync(context.Item))" />
+                    </MudTooltip>
+                    <MudTooltip Text="@(context.Item.Completed ? "Mark as open" : "Mark as completed")">
+                        <MudIconButton Icon="@(context.Item.Completed? Icons.Material.Filled.RadioButtonUnchecked : Icons.Material.Filled.CheckCircle)"
+                                       Color="@(context.Item.Completed ? Color.Warning : Color.Success)"
+                                       Size="Size.Small"
+                                       OnClick="@(() => ToggleCompletedAsync(context.Item))" />
+                    </MudTooltip>
+                    <MudTooltip Text="Delete task">
+                        <MudIconButton Icon="@Icons.Material.Filled.Delete"
+                                       Color="Color.Error"
+                                       Size="Size.Small"
+                                       OnClick="@(() => DeleteTodoAsync(context.Item.Id, context.Item.Title))" />
+                    </MudTooltip>
+                </CellTemplate>
+            </TemplateColumn>
+        </Columns>
+
+        <NoRecordsContent>
+            <MudText Typo="Typo.body1" Class="empty-state">
+                @NoRecordsMessage
+            </MudText>
+        </NoRecordsContent>
+
+    </MudDataGrid>
+</MudStack>

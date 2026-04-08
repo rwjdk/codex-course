@@ -1,0 +1,19 @@
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 2rem 0;
+}
+
+.hero h1 {
+    margin: 0;
+    font-size: clamp(3rem, 8vw, 5.5rem);
+    font-weight: 800;
+    line-height: 1;
+}
+
+.hero p {
+    margin: 0;
+    font-size: 1.25rem;
+}

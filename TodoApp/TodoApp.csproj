@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+	<PropertyGroup>
+		<TargetFramework>net10.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+		<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+		<BlazorDisableThrowNavigationException>true</BlazorDisableThrowNavigationException>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="JetBrains.Annotations" Version="2025.2.4" />
+		<PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.4" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="10.0.5">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="10.0.5" />
+		<PackageReference Include="ModelContextProtocol.AspNetCore" Version="1.1.0" />
+		<PackageReference Include="MudBlazor" Version="9.1.0" />
+		<PackageReference Include="Scalar.AspNetCore" Version="2.12.38" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<CompilerVisibleProperty Include="ProjectDir" />
+		<CompilerVisibleProperty Include="RootNamespace" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Folder Include="API\" />
+		<Folder Include="MCP\" />
+		<Folder Include="BusinessLogic\" />
+		<Folder Include="Repositories\" />
+	</ItemGroup>
+
+</Project>

@@ -1,0 +1,23 @@
+.todo-page {
+    padding-block: 1.5rem 2rem;
+}
+
+.hero-panel {
+    background:
+        radial-gradient(circle at top right, rgba(103, 80, 164, 0.18), transparent 28%),
+        radial-gradient(circle at bottom left, rgba(33, 150, 243, 0.14), transparent 24%),
+        linear-gradient(135deg, rgba(18, 18, 30, 0.96), rgba(34, 34, 59, 0.94));
+    color: white;
+}
+
+.list-panel {
+    border: 1px solid rgba(103, 80, 164, 0.12);
+}
+
+.actions-cell {
+    text-align: right;
+}
+
+.empty-state {
+    padding: 1rem 0;
+}

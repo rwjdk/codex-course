@@ -1,0 +1,87 @@
+root = true
+
+[*]
+# Use Windows-style line endings in all files.
+end_of_line = crlf
+# Ensure files end with a trailing newline.
+insert_final_newline = true
+
+[*.cs]
+# Treat the explicit-type rule as an error.
+dotnet_diagnostic.IDE0008.severity = error
+# Treat the always-use-braces rule as an error.
+dotnet_diagnostic.IDE0011.severity = error
+# Treat collection-initializer or collection-expression simplifications as errors.
+dotnet_diagnostic.IDE0028.severity = error
+# Treat auto-property opportunities as errors.
+dotnet_diagnostic.IDE0032.severity = error
+# Treat target-typed new() opportunities as errors.
+dotnet_diagnostic.IDE0090.severity = error
+# Treat namespace and folder mismatches as errors.
+dotnet_diagnostic.IDE0130.severity = error
+# Treat primary constructor opportunities as errors.
+dotnet_diagnostic.IDE0290.severity = error
+# Treat array collection-expression opportunities as errors.
+dotnet_diagnostic.IDE0300.severity = error
+# Treat empty collection-expression opportunities as errors.
+dotnet_diagnostic.IDE0301.severity = error
+# Treat stackalloc collection-expression opportunities as errors.
+dotnet_diagnostic.IDE0302.severity = error
+# Treat Create()-based collection-expression opportunities as errors.
+dotnet_diagnostic.IDE0303.severity = error
+# Treat builder-based collection-expression opportunities as errors.
+dotnet_diagnostic.IDE0304.severity = error
+# Treat fluent collection-expression opportunities as errors.
+dotnet_diagnostic.IDE0305.severity = error
+# Treat new-based collection-expression opportunities as errors.
+dotnet_diagnostic.IDE0306.severity = error
+# Treat naming-rule violations as errors.
+dotnet_diagnostic.IDE1006.severity = error
+
+# Always require braces, even for single-line statements.
+csharp_prefer_braces = true:error
+
+# Never allow var for built-in types.
+csharp_style_var_for_built_in_types = false:error
+# Never allow var when the type is obvious from the right-hand side.
+csharp_style_var_when_type_is_apparent = false:error
+# Never allow var in any other situation where an explicit type can be used.
+csharp_style_var_elsewhere = false:error
+
+# Prefer simplified new() when the created type is already apparent.
+csharp_style_implicit_object_creation_when_type_is_apparent = true:error
+# Prefer primary constructors over regular constructors when possible.
+csharp_style_prefer_primary_constructors = true:error
+
+# Prefer auto-properties when a manual backing field is unnecessary.
+dotnet_style_prefer_auto_properties = true:error
+# Require namespaces to match the folder structure.
+dotnet_style_namespace_match_folder = true:error
+# Prefer collection expressions such as [] and [..items] for collection creation.
+dotnet_style_prefer_collection_expression = when_types_loosely_match:error
+
+# Private fields must use the underscored naming style.
+dotnet_naming_rule.private_fields_must_be_underscored.symbols = private_fields
+dotnet_naming_rule.private_fields_must_be_underscored.style = underscored_private_field
+dotnet_naming_rule.private_fields_must_be_underscored.severity = error
+
+# Methods marked async must end with the Async suffix.
+dotnet_naming_rule.async_methods_must_end_with_async.symbols = async_methods
+dotnet_naming_rule.async_methods_must_end_with_async.style = async_suffix
+dotnet_naming_rule.async_methods_must_end_with_async.severity = error
+
+# Apply the private-field naming rule to private fields only.
+dotnet_naming_symbols.private_fields.applicable_kinds = field
+dotnet_naming_symbols.private_fields.applicable_accessibilities = private
+
+# Apply the async-method naming rule to methods marked with the async modifier.
+dotnet_naming_symbols.async_methods.applicable_kinds = method
+dotnet_naming_symbols.async_methods.required_modifiers = async
+
+# Private fields must start with _ and continue in camelCase.
+dotnet_naming_style.underscored_private_field.required_prefix = _
+dotnet_naming_style.underscored_private_field.capitalization = camel_case
+
+# Async methods must use the Async suffix while keeping normal PascalCase naming.
+dotnet_naming_style.async_suffix.required_suffix = Async
+dotnet_naming_style.async_suffix.capitalization = pascal_case

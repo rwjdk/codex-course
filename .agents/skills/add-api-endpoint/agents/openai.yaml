@@ -1,0 +1,4 @@
+interface:
+  display_name: "Add API Endpoint"
+  short_description: "Follow this repo's Minimal API pattern"
+  default_prompt: "Use $add-api-endpoint to add or extend a Minimal API endpoint in this BlazorApp solution."
