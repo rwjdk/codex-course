@@ -1,7 +1,7 @@
 # Project details
 - OS: `Microsoft Windows 11`
 - Command Line Tools: `codex`, `dotnet`, `git`, `python` and `powershell` [Other tools not allowed]
-- Target Framework: `.NET 10.0` and `C# 14.0` [Downgrade NOT allowed | Use latest C# features]
+- Target Framework: `.NET 9.0` and `C# 14.0` [Downgrade NOT allowed | Use latest C# features]
 - Type: `AspNetCore Blazor Web App`
 - API style: `Minimal API`
 - API docs: `OpenAPI` with `Scalar`
