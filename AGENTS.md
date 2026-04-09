@@ -1,14 +1,3 @@
-# IMPORTANT
-Whenever a new conversation begins do NEVER just start to code (There is no other exceptions to this rule!) - Instead do the following steps:
-1. Find `Available $skills` and `Available information tools` that are relevant for the task and read their details.
-2. Investigate the code-base for existing implementation details.
-3. Think about the question/task, and what might be unclear for the implementation.
-4. Finally ask the user 3-10 clarifying questions in a **numbered list** (NEVER PRESENT THEM AS JUST BULLETS; EACH QUESTION NEED A NUMBER). 
-
-Once these questions are answered, you can begin coding (for follow-ups, you should not do this)
-
----
-
 # Project details
 - OS: `Microsoft Windows 11`
 - Command Line Tools: `codex`, `dotnet`, `git`, `python` and `powershell` [Other tools not allowed]
@@ -25,13 +14,13 @@ Once these questions are answered, you can begin coding (for follow-ups, you sho
 
 # Build and Run Commands
 - Build: `dotnet build TodoApp.slnx`
-- Run App: `dotnet run --project BlazorApp\BlazorApp.csproj`
-- Add NuGet Package: `dotnet add BlazorApp\BlazorApp.csproj package <PackageName>`
+- Run App: `dotnet run --project TodoApp\TodoApp.csproj`
+- Add NuGet Package: `dotnet add TodoApp\TodoApp.csproj package <PackageName>`
 
 # Solution structure
 ```text
 ai-rules
-|-- BlazorApp/           # Main ASP.NET Core Blazor Web App project
+|-- TodoApp/           # Main ASP.NET Core Blazor Web App project
 |   |-- API/             # Minimal API endpoint mappings
 |   |-- BusinessLogic/   # Request models, command results, and domain services
 |   |-- Data/            # EF Core entity types and DbContext
@@ -42,7 +31,7 @@ ai-rules
 |   |-- Repositories/    # Query and command data access over EF Core
 |   \-- wwwroot/         # Static web assets
 ```
-- Note: The structure above intentionally includes only source-code folders. It omits repository metadata, tooling files, IDE state, build artifacts, runtime database files, launch-profile folders, and verification/output folders such as `.git`, `.github`, `.vs`, `build-verify`, `BlazorApp\bin`, `BlazorApp\obj`, and `BlazorApp\Properties`.
+- Note: The structure above intentionally includes only source-code folders. It omits repository metadata, tooling files, IDE state, build artifacts, runtime database files, launch-profile folders, and verification/output folders such as `.git`, `.github`, `.vs`, `build-verify`, `TodoApp\bin`, `TodoApp\obj`, and `TodoApp\Properties`.
 
 # Code Generation Rules
 - Always enforce `.editorconfig` rules.

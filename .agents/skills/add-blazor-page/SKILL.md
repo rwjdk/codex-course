@@ -18,3 +18,5 @@ description: Use when adding or updating a Blazor page.
 
 # MudBlazor Information
 - Use Tool `Context7` to gain information about `MudBlazor` NuGet Package
+
+
