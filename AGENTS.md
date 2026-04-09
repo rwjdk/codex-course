@@ -19,7 +19,7 @@
 
 # Solution structure
 ```text
-ai-rules
+codex-course
 |-- TodoApp/           # Main ASP.NET Core Blazor Web App project
 |   |-- API/             # Minimal API endpoint mappings
 |   |-- BusinessLogic/   # Request models, command results, and domain services
