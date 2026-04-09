@@ -1,8 +1,8 @@
 # Project details
 - OS: `Microsoft Windows 11`
 - Command Line Tools: `codex`, `dotnet`, `git`, `python` and `powershell` [Other tools not allowed]
-- Target Framework: `.NET 9.0` and `C# 14.0` [Downgrade NOT allowed | Use latest C# features]
-- Type: `AspNetCore Blazor Web App`
+- Target Framework: `.NET 10.0` and `C# 14.0` [Downgrade NOT allowed | Use latest C# features]
+- Type: `ASP.NET Core Blazor Web App`
 - API style: `Minimal API`
 - API docs: `OpenAPI` with `Scalar`
 - MCP: `ModelContextProtocol.AspNetCore` over HTTP
@@ -32,6 +32,9 @@ codex-course
 |   \-- wwwroot/         # Static web assets
 ```
 - Note: The structure above intentionally includes only source-code folders. It omits repository metadata, tooling files, IDE state, build artifacts, runtime database files, launch-profile folders, and verification/output folders such as `.git`, `.github`, `.vs`, `build-verify`, `TodoApp\bin`, `TodoApp\obj`, and `TodoApp\Properties`.
+
+# Code Generation
+- At the end of code generation, make sure changes are reflected in Agents.md and if it is a bigger change in the README.md
 
 # Code Generation Rules
 - Always enforce `.editorconfig` rules.

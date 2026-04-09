@@ -6,7 +6,7 @@ description: Use when add/edit of API Endpoints
 # API Endpoint implementation details
 
 - Add API Endpoints should be placed in the `TodoApp/API` Folder
-- Each file in the API represent an API Endpoint Group, so based on the requested endpoint add it to an existing group or create a new group (`TodoApp/API/<Feature>Api.cs`)
+- Each file in the API represents an API Endpoint Group, so based on the requested endpoint add it to an existing group or create a new group (`TodoApp/API/<Feature>Api.cs`)
 - Reuse `ApiEndpoints.ApiRoot` and keep shared route strings centralized instead of magic strings.
 - Add top-level route constants in `TodoApp/Constants.cs` when a new API group needs a stable path.
 - Keep route names plural when they represent collections. Example `ApiEndpoints.Todos`.
