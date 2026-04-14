@@ -46,6 +46,37 @@ public partial class Home : ComponentBase
 
     private int TotalCount => Todos.Count;
 
+    private IReadOnlyList<CompletionStatCard> CompletionStats =>
+        [
+            new("This month", CompletedThisMonthCount),
+            new("Last month", CompletedLastMonthCount),
+            new("Total", CompletedTotalCount)
+        ];
+
+    private int CompletedThisMonthCount
+    {
+        get
+        {
+            DateTime currentMonthStart = new(DateTime.Today.Year, DateTime.Today.Month, 1);
+            DateTime nextMonthStart = currentMonthStart.AddMonths(1);
+
+            return CountCompletedBetween(currentMonthStart, nextMonthStart);
+        }
+    }
+
+    private int CompletedLastMonthCount
+    {
+        get
+        {
+            DateTime currentMonthStart = new(DateTime.Today.Year, DateTime.Today.Month, 1);
+            DateTime lastMonthStart = currentMonthStart.AddMonths(-1);
+
+            return CountCompletedBetween(lastMonthStart, currentMonthStart);
+        }
+    }
+
+    private int CompletedTotalCount => Todos.Count(todo => todo.Completed);
+
     private string NoRecordsMessage =>
         TotalCount == 0
             ? "No todos yet. Use the New task button to create the first one."
@@ -200,4 +231,12 @@ public partial class Home : ComponentBase
             DueDate = item.DueDate,
             Completed = item.Completed
         };
+
+    private int CountCompletedBetween(DateTime startInclusive, DateTime endExclusive) =>
+        Todos.Count(todo =>
+            todo.CompletedAt is { } completedAt &&
+            completedAt >= startInclusive &&
+            completedAt < endExclusive);
+
+    private sealed record CompletionStatCard(string Title, int Count);
 }

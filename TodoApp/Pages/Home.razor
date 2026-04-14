@@ -145,4 +145,21 @@
         </NoRecordsContent>
 
     </MudDataGrid>
+
+    <MudPaper Outlined="true" Elevation="0" Class="stats-panel pa-4">
+        <MudText Typo="Typo.h5">Stats</MudText>
+
+        <MudGrid Spacing="3" Class="stats-grid">
+            @foreach (CompletionStatCard stat in CompletionStats)
+            {
+                <MudItem xs="12" sm="6" md="4">
+                    <MudPaper Outlined="true" Elevation="0" Class="stats-card pa-4">
+                        <MudText Typo="Typo.subtitle2" Class="stats-card__title">@stat.Title</MudText>
+                        <MudText Typo="Typo.h4" Class="stats-card__count">@stat.Count</MudText>
+                        <MudText Typo="Typo.body2" Class="stats-card__caption">tasks completed</MudText>
+                    </MudPaper>
+                </MudItem>
+            }
+        </MudGrid>
+    </MudPaper>
 </MudStack>

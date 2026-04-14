@@ -25,6 +25,8 @@ public sealed class TodoItem : IValidatableObject
     [DefaultValue(false)]
     public bool Completed { get; set; }
 
+    public DateTime? CompletedAt { get; set; }
+
     public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
     {
         if (StartDate is { } startDate && DueDate is { } dueDate && dueDate.Date < startDate.Date)

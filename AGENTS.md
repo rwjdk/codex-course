@@ -1,3 +1,14 @@
+# IMPORTANT
+Whenever a new conversation begins do NEVER just start to code (There is no other exceptions to this rule!) - Instead do the following steps:
+1. Find `Available $skills` and `Available information tools` that are relevant for the task and read their details.
+2. Investigate the code-base for existing implementation details.
+3. Think about the question/task, and what might be unclear for the implementation.
+4. Finally ask the user 3-10 clarifying questions in a **numbered list** (NEVER PRESENT THEM AS JUST BULLETS; EACH QUESTION NEED A NUMBER). 
+
+Once these questions are answered, you can begin coding (for follow-ups, you should not do this)
+
+---
+
 # Project details
 - OS: `Microsoft Windows 11`
 - Command Line Tools: `codex`, `dotnet`, `git`, `python` and `powershell` [Other tools not allowed]
@@ -7,6 +18,7 @@
 - API docs: `OpenAPI` with `Scalar`
 - MCP: `ModelContextProtocol.AspNetCore` over HTTP
 - Database: `SQLite`
+- Todo items persist a `CompletedAt` timestamp so the Home page can show completion stats by month and in total
 - UI Framework: `Blazor Web App` with interactive server components [not WASM, prerender disabled, global interactivity]
 - UI Component Libs: `MudBlazor`
 - ORM: `Entity Framework Core`

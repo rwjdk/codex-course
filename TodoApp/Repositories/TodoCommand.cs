@@ -31,6 +31,7 @@ public sealed class TodoCommand(IDbContextFactory<TodoDbContext> dbContextFactor
         existingTodo.StartDate = todoItem.StartDate;
         existingTodo.DueDate = todoItem.DueDate;
         existingTodo.Completed = todoItem.Completed;
+        existingTodo.CompletedAt = todoItem.CompletedAt;
 
         await dbContext.SaveChangesAsync(cancellationToken);
         return true;

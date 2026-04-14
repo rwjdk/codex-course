@@ -21,3 +21,34 @@
 .empty-state {
     padding: 1rem 0;
 }
+
+.stats-panel {
+    border: 1px solid rgba(103, 80, 164, 0.12);
+}
+
+.stats-grid {
+    margin-top: 0.5rem;
+}
+
+.stats-card {
+    height: 100%;
+    background:
+        linear-gradient(180deg, rgba(103, 80, 164, 0.08), rgba(103, 80, 164, 0.02)),
+        #fff;
+    border-color: rgba(103, 80, 164, 0.2);
+}
+
+.stats-card__title {
+    color: rgba(31, 31, 41, 0.72);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.stats-card__count {
+    margin-top: 0.5rem;
+    font-weight: 700;
+}
+
+.stats-card__caption {
+    color: rgba(31, 31, 41, 0.72);
+}
