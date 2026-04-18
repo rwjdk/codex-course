@@ -1,0 +1,4 @@
+interface:
+  display_name: "Add Repository Query/Command"
+  short_description: "Follow the TodoApp repository pattern"
+  default_prompt: "Use $add-repository-query-command to add or extend a repository query or command in this TodoApp solution."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Add Blazor Page"
+  short_description: "Follow this repo's Blazor page pattern"
+  default_prompt: "Use $add-blazor-page to add or extend a routable Blazor page in this BlazorApp solution."
